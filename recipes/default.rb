@@ -6,8 +6,10 @@
 #
 
 node[:spf13_vim][:users].each do |current_user|
+    home = Dir.home(current_user)
+
     bash "install spf13-vim" do
-        cwd "/home/#{current_user}/"
+        cwd "#{home}"
         user "#{current_user}"
         code <<-EOH
             curl http://j.mp/spf13-vim3 -L -o spf13-install.sh
