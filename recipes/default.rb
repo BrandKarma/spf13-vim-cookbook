@@ -5,7 +5,7 @@
 # Copyright 2014, Brand-Karma
 #
 
-["ubuntu"].each do |current_user|
+node[:spf13_vim][:users].each do |current_user|
     bash "install spf13-vim" do
         cwd "/home/#{current_user}/"
         user "#{current_user}"
